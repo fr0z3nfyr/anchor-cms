@@ -5,9 +5,15 @@
 </hgroup>
 
 <section class="wrap">
-	<?php echo $messages; ?>
+	
 
 	<ul class="list">
+		<li>
+			<a href="<?php echo Uri::to('admin/extend/pagetypes'); ?>">
+				<strong><?php echo __('extend.pagetypes'); ?></strong>
+				<span><?php echo __('extend.pagetypes_desc'); ?></span>
+			</a>
+		</li>
 		<li>
 			<a href="<?php echo Uri::to('admin/extend/fields'); ?>">
 				<strong><?php echo __('extend.fields'); ?></strong>
@@ -24,12 +30,6 @@
 			<a href="<?php echo Uri::to('admin/extend/metadata'); ?>">
 				<strong><?php echo __('metadata.metadata'); ?></strong>
 				<span><?php echo __('metadata.metadata_desc'); ?></span>
-			</a>
-		</li>
-		<li>
-			<a href="<?php echo Uri::to('admin/extend/plugins'); ?>">
-				<strong>Plugins</strong>
-				<span>Coming soon, yo!</span>
 			</a>
 		</li>
 	</ul>

@@ -21,7 +21,7 @@ CREATE TABLE `{{prefix}}comments` (
 
 CREATE TABLE `{{prefix}}extend` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
-  `type` enum('post','page') NOT NULL,
+  `type` enum('post','page','user') NOT NULL,
   `field` enum('text','html','image','file') NOT NULL,
   `key` varchar(160) NOT NULL,
   `label` varchar(160) NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE `{{prefix}}pages` (
   `status` enum('draft','published','archived') NOT NULL,
   `redirect` text NOT NULL,
   `show_in_menu` tinyint(1) NOT NULL,
-  `menu_order` int(4) NOT NULL,
+  `menu_order` int(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `status` (`status`),
   KEY `slug` (`slug`)
@@ -82,7 +82,7 @@ CREATE TABLE `{{prefix}}posts` (
   `author` int(6) NOT NULL,
   `category` int(6) NOT NULL,
   `status` enum('draft','published','archived') NOT NULL,
-  `comments` tinyint(1) NOT NULL,
+  `comments` tinyint(1) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `status` (`status`),
   KEY `slug` (`slug`)

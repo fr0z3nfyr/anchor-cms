@@ -8,7 +8,7 @@
 	</article>
 
 	<form method="post" action="<?php echo uri_to('database'); ?>" autocomplete="off">
-		<?php echo $messages; ?>
+		
 
 		<fieldset>
 			<p>
@@ -34,15 +34,20 @@
 
 			<p>
 				<label for="pass">Password</label>
-				<input id="pass" name="pass" value="<?php echo Input::previous('pass'); ?>">
-
+				<input id="pass" name="pass" type="password" value="<?php echo Input::previous('pass'); ?>" class="db-password-field">
 				<i>Leave blank for empty password.</i>
 			</p>
 
 			<p>
+				<label for="show-hide">Show or hide password</label>
+				<input name="show-hide" type="checkbox" value="Show/Hide password" class="show-hide-password">
+				<i>Check the box to show the password.</i>
+			</p>
+			<br>
+
+			<p>
 				<label for="name">Database Name</label>
 				<input id="name" name="name" value="<?php echo Input::previous('name', 'anchor'); ?>">
-
 				<i>Your database’s name.</i>
 			</p>
 
@@ -55,9 +60,9 @@
 
 			<p>
 				<label for="collation">Collation</label>
-				<select id="collation" name="collation">
-					<?php foreach($collations as $code => $collation): ?>
-					<?php $selected = ($code == Input::previous('collation', 'utf8_general_ci')) ? ' selected' : ''; ?>
+				<select id="collation" class="chosen-select" name="collation">
+					<?php foreach ($collations as $code => $collation): ?>
+					<?php $selected = ($code == Input::previous('collation', 'utf8_unicode_ci')) ? ' selected' : ''; ?>
 					<option value="<?php echo $code; ?>" <?php echo $selected; ?>>
 						<?php echo $code; ?>
 					</option>
